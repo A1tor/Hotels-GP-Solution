@@ -1,15 +1,16 @@
 package com.aitor.hotelsgpsolution.model;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
-import java.util.List;
+import java.util.Set;
 
 @Entity
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Amenity {
     @Id
     String name;
-    @OneToMany(mappedBy = "id", cascade = CascadeType.ALL, orphanRemoval = true)
-    List<Hotel> hotels;
+    Set<Long> hotels;
 }

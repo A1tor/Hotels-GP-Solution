@@ -15,6 +15,8 @@ public class HotelFull {
     String name;
     @Schema(description = "Hotel description")
     String description;
+    @Schema(description = "Brand that owns the hotel")
+    String brand;
     @Schema(description = "Hotel complete address")
     Address address;
     @Schema(description = "Contact number and email of hotel")
