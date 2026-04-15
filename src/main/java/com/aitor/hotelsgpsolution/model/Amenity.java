@@ -12,5 +12,8 @@ import java.util.Set;
 public class Amenity {
     @Id
     String name;
+    @ElementCollection
+    @CollectionTable(name = "amenity_hotels", joinColumns = @JoinColumn(name = "amenity_name"))
+    @Column(name = "hotel_id")
     Set<Long> hotels;
 }
