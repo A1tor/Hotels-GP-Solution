@@ -33,4 +33,14 @@ public interface HotelMapper {
     HotelFull toFull(Hotel entity);
 
     HotelBrief toBrief(Hotel entity);
+
+    @AfterMapping
+    default void setAddressFromEntity(Hotel hotel, @MappingTarget HotelBrief dto) {
+        dto.setAddress(String.format("%s %s, %s, %s, %s",
+                hotel.getHouseNumber(),
+                hotel.getStreet(),
+                hotel.getCity(),
+                hotel.getPostCode(),
+                hotel.getCountry()));
+    }
 }
